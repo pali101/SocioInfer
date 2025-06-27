@@ -1,0 +1,6 @@
+[submodule "NetworkSync"]
+	path = NetworkSync
+	url = https://github.com/pali101/NetworkSync.git
+[submodule "twitter-interest-inference"]
+	path = twitter-interest-inference
+	url = https://github.com/pali101/twitter-interest-inference.git
