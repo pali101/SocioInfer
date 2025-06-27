@@ -1,0 +1,24 @@
+services:
+  network-sync:
+    build:
+      context: ./NetworkSync
+      dockerfile: Dockerfile
+    container_name: network-sync
+    ports:
+      - "4000:4000"
+    env_file:
+      - ./NetworkSync/.env
+
+  twitter-interest:
+    build:
+      context: ./twitter-interest-inference
+      dockerfile: Dockerfile
+    container_name: twitter-interest
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./twitter-interest-inference/.env
+    environment:
+      - NETWORK_SYNC_URL=http://network-sync:4000
+    depends_on:
+      - network-sync
