@@ -16,15 +16,34 @@
 - **`Neo4j`** (Graph Database)  
   - Stores users and their following relationships as a graph.
 
-## Dockerized Setup
+## Getting Started
 
-Both services are containerized and orchestrated via Docker Compose.
+### Clone the repository (with submodules)
+```bash
+git clone --recurse-submodules https://github.com/pali101/SocioInfer.git
+cd SocioInfer
+```
 
-### Run
+### Configure environment variables
+Each service requires its own `.env` file.
+
+ For twitter interest inference:
+  ```bash
+  cp ./twitter-interest-inference/.env.example ./twitter-interest-inference/.env
+  ```
+  For network sync:
+  ```bash
+  cp ./NetworkSync/.env.example ./NetworkSync/.env
+  ```
+
+### Run the services
+
+Both services are containerized and orchestrated via Docker Compose. Start everything using Docker Compose:
 
 ```bash
 docker-compose up --build
 ```
+This will launch all services, networked together and ready for API requests.
 
 ## Structure
 
